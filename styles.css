@@ -23,7 +23,7 @@ body {
 .container {
   position: relative;
   z-index: 2;
-  max-width: 50%;
+  max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.8);
