@@ -109,9 +109,11 @@ backgroundMusic.volume = 0.2;
 
 // Effetti sonori
 const clickPlaySound = new Audio('clickPlay.wav');
+clickPlaySound.volume = 0.5
 const diceRollSound = new Audio('diceRoll.mp3');
 const lostSound = new Audio('lost.wav');
 const playerTurnSound = new Audio('playerTurn.wav');
+playerTurnSound.volume = 0.4
 const winSound = new Audio('win.wav');
 
 // Event Listeners
