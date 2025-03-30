@@ -2,16 +2,115 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Fairy's Numbers</title>
-    <!-- Add Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Add Nunito font -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <body class="min-h-screen bg-gradient-to-br from-purple-900 to-indigo-900">
+    <div id="particles-js"></div>
+
+    <!-- Audio Controls -->
+    <div id="audio-controls" class="fixed top-4 right-4 z-10">
+      <button id="mute-btn" class="audio-btn">
+        <span class="material-icons">volume_up</span>
+      </button>
+    </div>
+
+    <div class="container">
+      <h1 class="game-title">The Fairy's Numbers</h1>
+
+      <div class="menu">
+        <!-- Inside the menu div, add this before the start button -->
+        <div class="difficulty-selector">
+          <p><strong>Difficulty:</strong></p>
+          <div class="difficulty-buttons">
+            <button id="easy-btn" class="difficulty-btn active">Easy</button>
+            <button id="medium-btn" class="difficulty-btn">Medium</button>
+            <button id="hard-btn" class="difficulty-btn">Hard</button>
+          </div>
+        </div>
+        <button id="start-btn" class="primary-button">
+          <span class="material-icons">play_arrow</span>
+          Play
+        </button>
+        <div class="rules">
+          <p>
+            <strong>Rules:</strong> Each player chooses a number between 1 and
+            10. The first to reach 100 wins!
+          </p>
+        </div>
+      </div>
+
+      <div class="dice-roll hidden">
+        <button id="roll-dice" class="primary-button">
+          <span class="material-icons">casino</span>
+          Roll the dice!
+        </button>
+        <div id="dice-result" class="hidden dice-result">
+          <p id="player-dice" class="dice-number"></p>
+          <p id="ai-dice" class="dice-number"></p>
+          <p id="turn-message"></p>
+        </div>
+      </div>
+
+      <div class="game hidden">
+        <div class="scores-container">
+          <div class="score-card player-card">
+            <span class="material-icons">person</span>
+            <p><strong>Player:</strong> <span id="player-choice">0</span></p>
+          </div>
+          <div class="score-card ai-card">
+            <span class="material-icons">smart_toy</span>
+            <p><strong>AI:</strong> <span id="ai-choice">0</span></p>
+          </div>
+        </div>
+
+        <div class="total-score">
+          <p id="totale"><strong>Total:</strong> <span id="total">0</span></p>
+          <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+          </div>
+        </div>
+
+        <div class="turn">
+          <p id="game-turn-message"></p>
+          <div id="player-input" class="hidden">
+            <p></p>
+            <div class="number-input-container">
+              <input
+                type="number"
+                id="player-number"
+                min="1"
+                max="10"
+                required
+              />
+              <button id="submit-number" class="primary-button">
+                <span class="material-icons">send</span>
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer" class="fixed bottom-0 left-0 w-full text-center py-2">
+      <p class="text-lg font-bold text-white tracking-wide drop-shadow-md">
+        codedBy: <span class="text-yellow-300">Bubbo</span>
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
